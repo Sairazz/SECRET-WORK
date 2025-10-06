@@ -1,13 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Story Hub Dashboard</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Welcome to Your Private Site!</h1>
-    <p>This page is only for you.</p>
+<div class="dashboard-container">
+    <h1>Your Story Hub</h1>
+
+    <!-- Music Section -->
+    <section class="music-section">
+        <h2>Background Music</h2>
+        <button onclick="toggleMusic()">Play / Pause Music</button>
+    </section>
+
+    <!-- Select Book -->
+    <section class="book-section">
+        <h2>Select Book</h2>
+        <select id="bookSelect" onchange="switchBook()">
+            <option value="book1">Book 1</option>
+            <option value="book2">Book 2</option>
+            <option value="book3">Book 3</option>
+        </select>
+    </section>
+
+    <!-- Notes Section -->
+    <section class="notes-section">
+        <h2>Notes</h2>
+        <input type="text" id="noteTitle" placeholder="Title">
+        <textarea id="noteBody" placeholder="Your note here..."></textarea>
+        <button onclick="addNote()">Add Note</button>
+        <div id="notesList"></div>
+    </section>
+
+    <!-- Characters Section -->
+    <section class="characters-section">
+        <h2>Characters</h2>
+        <input type="text" id="charName" placeholder="Character Name">
+        <textarea id="charDesc" placeholder="Character Description"></textarea>
+        <button onclick="addCharacter()">Add Character</button>
+        <div id="charList"></div>
+    </section>
+
+    <!-- Maps Section -->
+    <section class="maps-section">
+        <h2>Maps</h2>
+        <input type="file" id="mapInput">
+        <button onclick="addMap()">Upload Map</button>
+        <ul id="mapList"></ul>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="timeline-section">
+        <h2>Timeline</h2>
+        <input type="text" id="eventTitle" placeholder="Event Title">
+        <input type="date" id="eventDate">
+        <button onclick="addEvent()">Add Event</button>
+        <ul id="timelineList"></ul>
+    </section>
+</div>
+<script src="script.js"></script>
 </body>
 </html>
