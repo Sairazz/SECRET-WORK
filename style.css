@@ -1,86 +1,106 @@
+/* General Styles */
 body {
-    font-family: Arial, sans-serif;
-    background: #121212;
-    color: #fff;
     margin: 0;
-    padding: 0;
+    font-family: "Georgia", serif;
+    background: #1c1c1c url('https://i.ibb.co/2nX1dD9/parchment-bg.jpg') repeat;
+    color: #f5f0e1;
 }
 
-.dashboard-container, .login-container {
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 30px;
-    background: #1f1f2e;
-    border-radius: 10px;
-    box-shadow: 0 0 20px #0f3460;
+/* Sidebar */
+.sidebar {
+    width: 200px;
+    background: #2a2a2a;
+    position: fixed;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
-h1 {
-    color: #ff6b6b;
-    text-align: center;
+.sidebar h2 {
+    color: #f5f0e1;
+    margin-bottom: 20px;
 }
 
-h2 {
-    color: #00bfa6;
-    margin-top: 30px;
-}
-
-input, textarea, button, select {
+.sidebar a {
     display: block;
-    width: 90%;
-    margin: 10px auto;
-    padding: 10px;
+    color: #f5f0e1;
+    text-decoration: none;
+    margin: 10px 0;
+    padding: 5px;
     border-radius: 5px;
-    border: none;
 }
 
-textarea {
-    height: 80px;
+.sidebar a:hover {
+    background: #5a4545;
 }
 
+/* Main Content */
+.main-content {
+    margin-left: 220px;
+    padding: 20px;
+}
+
+/* Buttons */
 button {
-    background: #ff6b6b;
-    color: white;
+    padding: 8px 12px;
+    border: none;
+    background: #5a4545;
+    color: #f5f0e1;
     cursor: pointer;
-    font-weight: bold;
+    border-radius: 5px;
+    margin-top: 5px;
 }
 
 button:hover {
-    background: #e43f5a;
+    background: #8b6e6e;
 }
 
-.note-item, .char-item {
-    background: #0f3460;
+/* Inputs */
+input, textarea, select {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0 10px 0;
+    border-radius: 5px;
+    border: 1px solid #5a4545;
+    background: #2a2a2a;
+    color: #f5f0e1;
+}
+
+/* Cards */
+.card {
+    background: rgba(0,0,0,0.3);
+    padding: 15px;
     margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 5px #000;
+}
+
+.card img {
+    max-width: 100%;
+    border-radius: 5px;
+    margin: 5px 0;
+}
+
+/* Collapsible Sections */
+.collapsible h2 {
+    cursor: pointer;
+    background: #5a4545;
     padding: 10px;
     border-radius: 5px;
+    margin-top: 20px;
 }
 
-.note-item h3, .char-item h3 {
-    margin: 0;
-}
-
-ul {
-    list-style: none;
-    padding: 0;
-}
-
-ul li {
-    background: #0f3460;
-    margin: 5px 0;
-    padding: 5px 10px;
-    border-radius: 5px;
-}
-
-.music-section button {
-    background: #00bfa6;
-    color: white;
-    padding: 10px 20px;
-    margin: 10px auto;
-    border-radius: 5px;
+.collapsible-content {
     display: block;
+    margin-top: 10px;
 }
 
-.music-section button:hover {
-    background: #00e0c6;
+/* Login Page */
+.login-container {
+    width: 300px;
+    margin: 100px auto;
+    text-align: center;
+    background: rgba(0,0,0,0.4);
+    padding: 20px;
+    border-radius: 10px;
 }
