@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Settings - Story Hub</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="sidebar">
+    <h2>📚 Story Hub</h2>
+    <a href="dashboard.html">🏠 Home</a>
+    <a href="notes.html">📝 Notes</a>
+    <a href="characters.html">👤 Characters</a>
+    <a href="maps.html">🗺️ Maps</a>
+    <a href="timeline.html">📅 Timeline</a>
+    <a href="settings.html">⚙️ Settings</a>
+    <a href="preview.html">📖 Preview</a>
+</div>
+<div class="main-content">
+    <h1>Settings</h1>
+    <section>
+        <h2>Change Password</h2>
+        <input type="password" id="newPassword" placeholder="New Password">
+        <button onclick="changePassword()">Save Password</button>
+    </section>
+    <section>
+        <h2>Music</h2>
+        <button onclick="toggleMusic()">Play / Pause Music</button>
+    </section>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
