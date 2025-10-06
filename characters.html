@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Characters - Story Hub</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="sidebar">
+    <h2>📚 Story Hub</h2>
+    <a href="dashboard.html">🏠 Home</a>
+    <a href="notes.html">📝 Notes</a>
+    <a href="characters.html">👤 Characters</a>
+    <a href="maps.html">🗺️ Maps</a>
+    <a href="timeline.html">📅 Timeline</a>
+    <a href="settings.html">⚙️ Settings</a>
+    <a href="preview.html">📖 Preview</a>
+</div>
+<div class="main-content">
+    <h1>Characters</h1>
+    <section>
+        <input type="text" id="charName" placeholder="Character Name">
+        <textarea id="charDesc" placeholder="Character Description"></textarea>
+        <button onclick="addCharacter()">Add Character</button>
+        <div id="charList"></div>
+    </section>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
