@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book Preview - Story Hub</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="sidebar">
+    <h2>📚 Story Hub</h2>
+    <a href="dashboard.html">🏠 Home</a>
+    <a href="notes.html">📝 Notes</a>
+    <a href="characters.html">👤 Characters</a>
+    <a href="maps.html">🗺️ Maps</a>
+    <a href="timeline.html">📅 Timeline</a>
+    <a href="settings.html">⚙️ Settings</a>
+    <a href="preview.html">📖 Preview</a>
+</div>
+
+<div class="main-content">
+    <h1>📖 Book Preview</h1>
+    <section>
+        <label for="previewBook">Select Book:</label>
+        <select id="previewBook" onchange="switchPreviewBook()">
+            <option value="book1">Book 1</option>
+            <option value="book2">Book 2</option>
+            <option value="book3">Book 3</option>
+        </select>
+    </section>
+
+    <section class="collapsible">
+        <h2 onclick="toggleSection('previewNotesList')">📝 Notes</h2>
+        <div id="previewNotesList" class="collapsible-content"></div>
+    </section>
+
+    <section class="collapsible">
+        <h2 onclick="toggleSection('previewCharList')">👤 Characters</h2>
+        <div id="previewCharList" class="collapsible-content"></div>
+    </section>
+
+    <section class="collapsible">
+        <h2 onclick="toggleSection('previewMapList')">🗺️ Maps</h2>
+        <div id="previewMapList" class="collapsible-content"></div>
+    </section>
+
+    <section class="collapsible">
+        <h2 onclick="toggleSection('previewTimelineList')">📅 Timeline</h2>
+        <div id="previewTimelineList" class="collapsible-content"></div>
+    </section>
+</div>
+
+<script src="script.js"></script>
+<script>
+// --- Preview Page Logic ---
+let previewBook = localStorage.getItem('storyHubCurrentBook') || 'book1';
+document.getElementById('previewBook').value = previewBook;
+
+function switchPreviewBook(){
+    previewBook = document.getElementById('previewBook').value;
+    renderPreview();
+}
+
+function toggleSection(id){
+    const el = document.getElementById(id);
+    el.style.display = (el.style.display === 'none' || el.style.display==='') ? 'block' : 'none';
+}
+
+function renderPreview(){
+    const bookData = storage[previewBook] || {notes:[], characters:[], maps:[], timeline:[]};
+
+    // Notes
+    const notesDiv = document.getElementById('previewNotesList');
+    notesDiv.innerHTML = '';
+    bookData.notes.forEach(note=>{
+        const div = document.createElement('div');
+        div.className='note-item card';
+        div.innerHTML = `<h3>${note.title}</h3><p>${note.body}</p>`;
+        notesDiv.appendChild(div);
+    });
+
+    // Characters
+    const charDiv = document.getElementById('previewCharList');
+    charDiv.innerHTML='';
+    bookData.characters.forEach(char=>{
+        const div = document.createElement('div');
+        div.className='char-item card';
+        div.innerHTML = `<h3>${char.name}</h3>${char.img ? `<img src="${char.img}" alt="${char.name}">` : ''}<p>${char.desc}</p>`;
+        charDiv.appendChild(div);
+    });
+
+    // Maps
+    const mapList = document.getElementById('previewMapList');
+    mapList.innerHTML='';
+    bookData.maps.forEach(map=>{
+        const div = document.createElement('div');
+        div.className='card';
+        div.innerHTML = map.img ? `<img src="${map.img}" alt="${map.name}"><p>${map.name}</p>` : `<p>${map.name}</p>`;
+        mapList.appendChild(div);
+    });
+
+    // Timeline
+    const timelineList = document.getElementById('previewTimelineList');
+    timelineList.innerHTML='';
+    bookData.timeline.forEach(event=>{
+        const div = document.createElement('div');
+        div.className='card';
+        div.textContent = `${event.date}: ${event.title}`;
+        timelineList.appendChild(div);
+    });
+}
+
+// Initialize preview
+renderPreview();
+</script>
+</body>
+</html>
